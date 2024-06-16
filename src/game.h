@@ -4,15 +4,16 @@
 typedef struct player {
   int age;
   int height;
-  char name[];
-  // TODO: add the rest
+  char name[1024];
+  // TODO: add the rest of the player struct
 } Player;
 
-// game functions
+// GAME FUNCTIONS =====================
 Player build_player();
 // TODO: add the rest of the game functions
 
-// utility
+// UTILITY FUNCTIONS ==================
+// prints str character by character
 void slow_print(char str[]);
 
 #endif // !GAME

@@ -10,5 +10,5 @@ gcc src/main.c src/game.c -o "$out_file"
 "./$out_file"
 
 # Remove
-rm -rf "$out_file"
+rm "$out_file"
 

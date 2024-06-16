@@ -1,15 +1,27 @@
+#include "game.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "game.h"
 
+// GAME FUNCTIONS =====================
 
-// builds the player struct with user input
+/**
+ * build the player character based on user input
+ */
 Player build_player() {
   Player player;
-  // TODO: build the player
+
+  slow_print("> What should we call you player?\n");
+  char name[1024];
+  scanf("%s", name);
+  strcpy(player.name, name);
+
+  // TODO: the rest of building player
+
   return player;
 }
+
+// TODO: add the rest of the functions here
 
 // UTILITY FUNCTION
 void slow_print(char *str) {
@@ -20,4 +32,3 @@ void slow_print(char *str) {
   }
   putchar('\n');
 }
-
