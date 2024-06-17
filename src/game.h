@@ -10,6 +10,8 @@ typedef struct player {
 
 // GAME FUNCTIONS =====================
 Player build_player();
+void travelling(Player player);
+char* choose_a_vehicle();
 // TODO: add the rest of the game functions
 
 // UTILITY FUNCTIONS ==================

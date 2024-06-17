@@ -21,7 +21,14 @@ Player build_player() {
   return player;
 }
 
-// TODO: add the rest of the functions here
+void travelling(Player player) {
+  // TODO: implement this
+}
+
+char* choose_a_vehicle() {
+  // TODO: implement this
+  return NULL;
+}
 
 // UTILITY FUNCTION
 void slow_print(char *str) {
@@ -32,3 +39,4 @@ void slow_print(char *str) {
   }
   putchar('\n');
 }
+
