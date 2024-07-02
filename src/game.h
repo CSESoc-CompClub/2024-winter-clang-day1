@@ -5,17 +5,18 @@ typedef struct player {
   int age;
   int height;
   char name[1024];
-  // TODO: add the rest of the player struct
+  char vehicle[1024];
 } Player;
 
 // GAME FUNCTIONS =====================
 Player build_player();
 void travelling(Player player);
-char* choose_a_vehicle();
-// TODO: add the rest of the game functions
+void choose_a_vehicle(Player player, char* environment);
 
 // UTILITY FUNCTIONS ==================
-// prints str character by character
+/**
+ * print char by char for aesthetics
+ */
 void slow_print(char str[]);
 
 #endif // !GAME
