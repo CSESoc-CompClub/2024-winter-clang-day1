@@ -16,14 +16,17 @@ Player build_player() {
 
   slow_print("> What should we call you player?\n");
   char name[1024];
-  scanf("> %s", name);
+  scanf("%s", name);
+  printf("\n");
   strcpy(player.name, name);
 
   slow_print("> What is your age?\n");
-  scanf("> %d", &player.age);
+  scanf("%d", &player.age);
+  printf("\n");
 
   slow_print("> What is your height?\n");
-  scanf("> %d", &player.height);
+  scanf("%d", &player.height);
+  printf("\n");
 
   return player;
 }
@@ -36,26 +39,30 @@ void travelling(Player player) {
     char enter_place_str[1024];
     sprintf(enter_place_str, "> Enter place %d: \n", i);
     slow_print(enter_place_str);
-    scanf("> %s", places[i]);
+    scanf("%s", places[i]);
+    printf("\n");
   }
 
   for (int i = 0; i < MAX_PLACES; i++) {
     choose_a_vehicle(player, places[i]);
   }
+
+  slow_print("Congratulations, you've beat the game!");
 }
 
 void choose_a_vehicle(Player player, char *environment) {
   char str[1024];
+  char selection;
 
-  sprintf(str, "> You have arrive at %s.\n", environment);
+  sprintf(str, "> You have arrived at %s.\n", environment);
   slow_print(str);
   slow_print("> Select a vehicle for your travels.\n");
   slow_print("> - (h) Hoverboard\n");
   slow_print("> - (q) Quantum High Speed Bike\n");
   slow_print("> - (n) Nano Diffusion Jetpack\n");
 
-  char selection;
-  scanf("> %c", &selection);
+  scanf(" %c", &selection);
+  printf("\n");
 
   if (selection == 'h') {
     strcpy(player.vehicle, "Hoverboard");
@@ -68,6 +75,7 @@ void choose_a_vehicle(Player player, char *environment) {
   }
 
   sprintf(str, "> You have chosen %s for your travels in %s!\n", player.vehicle, environment);
+  slow_print(str);
   slow_print("> Good choice agent, you've made it to the next location.\n");
 }
 
