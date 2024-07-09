@@ -13,8 +13,6 @@ int main(void) {
              "top-secret mission, please ensure your true identity is not "
              "revealed.\n");
   Player player = build_player();
-  char player_info_string[1024];
-  sprintf(player_info_string, "> Understood, welcome to the game %s. We've recorded your height as %d and age as %d.\n", player.name, player.height, player.age);
-  slow_print(player_info_string);
+  slow_print("> Understood, welcome to the game %s. We've recorded your height as %d and age as %d.\n", player.name, player.height, player.age);
   travelling(player);
 }

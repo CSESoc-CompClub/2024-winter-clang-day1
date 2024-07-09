@@ -74,7 +74,7 @@ void choose_a_vehicle(Player player, char *environment) {
     strcpy(player.vehicle, "Super Secret Skateboard");
   }
 
-  sprintf(str, "> You have chosen %s for your travels in %s!\n", player.vehicle, environment);
+  slow_print("> You have chosen %s for your travels in %s!\n", player.vehicle, environment);
   slow_print(str);
   slow_print("> Good choice agent, you've made it to the next location.\n");
 }
