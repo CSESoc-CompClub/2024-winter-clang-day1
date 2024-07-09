@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // GAME FUNCTIONS =====================
 
@@ -31,9 +32,15 @@ char* choose_a_vehicle() {
 }
 
 // UTILITY FUNCTION
-void slow_print(char *str) {
-  for (int i = 0; i < strlen(str); i++) {
-    putchar(str[i]);
+void slow_print(const char *format, ...) {
+  char buffer[1024]; // Ensure this buffer is large enough for your needs
+  va_list args;
+  va_start(args, format);
+  vsnprintf(buffer, sizeof(buffer), format, args);
+  va_end(args);
+  
+  for (int i = 0; i < strlen(buffer); i++) {
+    putchar(buffer[i]);
     fflush(stdout);
     usleep(10000);
   }
