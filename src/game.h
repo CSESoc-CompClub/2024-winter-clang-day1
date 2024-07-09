@@ -17,6 +17,6 @@ void choose_a_vehicle(Player player, char* environment);
 /**
  * print char by char for aesthetics
  */
-void slow_print(char str[]);
+void slow_print(const char *format, ...);
 
 #endif // !GAME
