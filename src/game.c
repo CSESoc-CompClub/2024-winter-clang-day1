@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // CONSTANTS ==========================
 int MAX_PLACES = 4;
@@ -50,11 +51,9 @@ void travelling(Player player) {
 }
 
 void choose_a_vehicle(Player player, char *environment) {
-  char str[1024];
   char selection;
 
-  sprintf(str, "> You have arrived at %s.\n", environment);
-  slow_print(str);
+  slow_print("> You have arrived at %s.\n", environment);
   slow_print("> Select a vehicle for your travels.\n");
   slow_print("> - (h) Hoverboard\n");
   slow_print("> - (q) Quantum High Speed Bike\n");
@@ -73,15 +72,20 @@ void choose_a_vehicle(Player player, char *environment) {
     strcpy(player.vehicle, "Super Secret Skateboard");
   }
 
-  sprintf(str, "> You have chosen %s for your travels in %s!\n", player.vehicle, environment);
-  slow_print(str);
+  slow_print("> You have chosen %s for your travels in %s!\n", player.vehicle, environment);
   slow_print("> Good choice agent, you've made it to the next location.\n");
 }
 
 // UTILITY FUNCTION
-void slow_print(char *str) {
-  for (int i = 0; i < strlen(str); i++) {
-    putchar(str[i]);
+void slow_print(const char *format, ...) {
+  char buffer[1024]; // Ensure this buffer is large enough for your needs
+  va_list args;
+  va_start(args, format);
+  vsnprintf(buffer, sizeof(buffer), format, args);
+  va_end(args);
+
+  for (int i = 0; i < strlen(buffer); i++) {
+    putchar(buffer[i]);
     fflush(stdout);
     usleep(10000);
   }
