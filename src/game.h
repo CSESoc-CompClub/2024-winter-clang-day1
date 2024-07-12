@@ -1,3 +1,8 @@
+// [GAME.H]
+// Header file for game.
+
+// ============================================================================
+
 #ifndef GAME
 #define GAME
 
@@ -8,15 +13,15 @@ typedef struct player {
   char vehicle[1024];
 } Player;
 
-// GAME FUNCTIONS =====================
+// GAME FUNCTIONS =============================================================
 Player build_player();
 void travelling(Player player);
 void choose_a_vehicle(Player player, char* environment);
 
-// UTILITY FUNCTIONS ==================
+// UTILITY FUNCTIONS ==========================================================
 /**
  * print char by char for aesthetics
  */
-void slow_print(char str[]);
+void slow_print(const char *format, ...);
 
 #endif // !GAME
