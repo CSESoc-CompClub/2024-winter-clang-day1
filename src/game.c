@@ -24,20 +24,9 @@ int MAX_PLACE_LENGTH = 12;
 */
 Player build_player() {
   Player player;
-
-  slow_print("> What should we call you player?\n");
-  char name[1024];
-  scanf("%s", name);
-  printf("\n");
-  strcpy(player.name, name);
-
-  slow_print("> What is your age?\n");
-  scanf("%d", &player.age);
-  printf("\n");
-
-  slow_print("> What is your height?\n");
-  scanf("%d", &player.height);
-  printf("\n");
+  
+  // TODO: Ask the user for and fill out the name, age, and height
+  slow_print("Finish me!");
 
   return player;
 }
@@ -50,14 +39,7 @@ Player build_player() {
 void travelling(Player player) {
   char **places = malloc(MAX_PLACES * sizeof(char *));
 
-  for (int i = 0; i < MAX_PLACES; i++) {
-    places[i] = malloc((MAX_PLACE_LENGTH + 1) * sizeof(char));
-    char enter_place_str[1024];
-    sprintf(enter_place_str, "> Enter place %d: \n", i);
-    slow_print(enter_place_str);
-    scanf("%s", places[i]);
-    printf("\n");
-  }
+  // TODO: Ask player to input MAX_PLACES number of places
 
   for (int i = 0; i < MAX_PLACES; i++) {
     choose_a_vehicle(player, places[i]);
@@ -72,7 +54,6 @@ void travelling(Player player) {
   select a mode of transport, and take our user to the destination!
 */
 void choose_a_vehicle(Player player, char *environment) {
-  char selection;
 
   slow_print("> You have arrived at %s.\n", environment);
   slow_print("> Select a vehicle for your travels.\n");
@@ -80,20 +61,10 @@ void choose_a_vehicle(Player player, char *environment) {
   slow_print("> - (q) Quantum High Speed Bike\n");
   slow_print("> - (n) Nano Diffusion Jetpack\n");
 
-  scanf(" %c", &selection);
-  printf("\n");
+  // TODO: Ask the player for their vehicle of choice, then fix the slow_print
+  // statement below with the correct fields.
 
-  if (selection == 'h') {
-    strcpy(player.vehicle, "Hoverboard");
-  } else if (selection == 'q') {
-    strcpy(player.vehicle, "Quantum High Speed Bike");
-  } else if (selection == 'n') {
-    strcpy(player.vehicle, "Nano Diffusion Jetpack");
-  } else {
-    strcpy(player.vehicle, "Super Secret Skateboard");
-  }
-
-  slow_print("> You have chosen %s for your travels in %s!\n", player.vehicle, environment);
+  slow_print("> You have chosen <VEHICLE> for your travels in <ENVIRONMENT>!\n");
   slow_print("> Good choice agent, you've made it to the next location.\n");
 }
 
